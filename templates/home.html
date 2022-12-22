@@ -51,6 +51,8 @@
                             <th>Address</th>
                             <th>Contact</th>
                             <th>Mail</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     {% for data in mydata %}
@@ -62,6 +64,8 @@
                                 <td>{{data.Address}}</td>
                                 <td>{{data.Contact}}</td>
                                 <td>{{data.Mail}}</td>
+                                <td><a class="btn btn-success" href="updateData/{{data.id}}">Update</a></td>
+                                <td><a class="btn btn-danger" href="deleteData/{{data.id}}">Delete</a></td>
                             </tr>
                         </tbody>
                     {% endfor %}

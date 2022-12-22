@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Home</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="col-md-offset-4 col-md-3">
+                <form action="/updateData/{{data.id}}" method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    <h3 class="page-header text-primary text-center">Update Here</h3>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" value="{{data.Name}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="text" name="age" class="form-control" value="{{data.Age}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" name="address" class="form-control" value="{{data.Address}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input type="text" name="contact" class="form-control" value="{{data.Contact}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Mail</label>
+                        <input type="text" name="mail" class="form-control" value="{{data.Mail}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary btn-block">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

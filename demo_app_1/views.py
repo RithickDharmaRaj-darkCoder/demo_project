@@ -31,6 +31,27 @@ def addData(request):
         
     return render(request, "home.html")
 
+def updateData(request, id):
+    mydata = students_data.objects.get(id=id)
+    if request.method == 'POST':
+        name = request.POST.get('name', False)
+        age = request.POST.get('age', False)
+        address = request.POST.get('address', False)
+        contact = request.POST.get('contact', False)
+        mail = request.POST.get('mail', False)
+        
+        mydata.Name = name
+        mydata.Age = age
+        mydata.Address = address
+        mydata.Contact = contact
+        mydata.Mail = mail
+        mydata.save()
+        return redirect('home')
+    return render(request, "update.html", {'data':mydata})
 
 
+def deleteData(request, id):
+    mydata = students_data.objects.get(id=id)
+    mydata.delete()
+    return redirect('home')
 
