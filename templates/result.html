@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Result</title>
+        <style>
+            table,th,td{
+                border:2px solid blue;
+                padding: 8px;
+                border-collapse: collapse;
+            }
+            th,td{
+                padding: 8px;
+            }
+            .center{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+
+    <body>
+        {% block form %}
+            <table class='center'>
+                <tr>
+                    <th colspan='2'>
+                        <center>Student Details<center></center>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Name</th>
+                    <td>{{FNAME}} {{LNAME}}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{CITY}}</td>
+                </tr>
+            </table>
+        {% endblock %}
+
+    </body>
+</html>
