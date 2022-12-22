@@ -1,11 +1,18 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import students_data
 
 # Create your views here.
 
 def home(request):
+    mydata = students_data.objects.all()
+    if mydata != '':
+        return render(request, "home.html",{'mydata':mydata})
+    else:
+        return render(request, "home.html")
+
+def addData(request):
     if request.method == 'POST':
         name = request.POST.get('name', False)
         age = request.POST.get('age', False)
@@ -20,6 +27,7 @@ def home(request):
         std_data.Contact = contact
         std_data.Mail = mail
         std_data.save()
+        return redirect('home')
         
     return render(request, "home.html")
 

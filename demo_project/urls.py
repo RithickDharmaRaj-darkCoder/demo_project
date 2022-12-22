@@ -18,7 +18,7 @@ from django.urls import path
 from demo_app_1 import views
 
 urlpatterns = [
-    path(r'admin/', admin.site.urls),
-    path('',views.home),
-    path('home/',views.home),
+    path('admin/', admin.site.urls),
+    path('',views.home, name='home'),
+    path('addData', views.addData, name="addData"),
 ]
